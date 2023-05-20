@@ -13,6 +13,10 @@
 		06F0156F2A18C56F00592B8A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06F0156E2A18C56F00592B8A /* Preview Assets.xcassets */; };
 		06F015712A18C56F00592B8A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015702A18C56F00592B8A /* Persistence.swift */; };
 		06F015742A18C56F00592B8A /* MarvelComUPSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 06F015722A18C56F00592B8A /* MarvelComUPSA.xcdatamodeld */; };
+		06F0157B2A18C70B00592B8A /* AFWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F0157A2A18C70B00592B8A /* AFWrapper.swift */; };
+		06F015812A18D56100592B8A /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015802A18D56100592B8A /* NetworkConstants.swift */; };
+		06F015832A18D5EA00592B8A /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015822A18D5EA00592B8A /* UserDefaultsKeys.swift */; };
+		06F015862A18E0C700592B8A /* ComicDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015852A18E0C700592B8A /* ComicDetailBuilder.swift */; };
 		E8D9394F32747C143C4CA796 /* Pods_MarvelComUPSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11D88F7B74723DC57B0B57F /* Pods_MarvelComUPSA.framework */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +28,11 @@
 		06F0156E2A18C56F00592B8A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		06F015702A18C56F00592B8A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		06F015732A18C56F00592B8A /* MarvelComUPSA.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelComUPSA.xcdatamodel; sourceTree = "<group>"; };
+		06F0157A2A18C70B00592B8A /* AFWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFWrapper.swift; sourceTree = "<group>"; };
+		06F0157F2A18D51900592B8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		06F015802A18D56100592B8A /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		06F015822A18D5EA00592B8A /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
+		06F015852A18E0C700592B8A /* ComicDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailBuilder.swift; sourceTree = "<group>"; };
 		8899936311CE2E097C793892 /* Pods-MarvelComUPSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelComUPSA.debug.xcconfig"; path = "Target Support Files/Pods-MarvelComUPSA/Pods-MarvelComUPSA.debug.xcconfig"; sourceTree = "<group>"; };
 		A11D88F7B74723DC57B0B57F /* Pods_MarvelComUPSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelComUPSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6DC206BC7F13F7913D36EA /* Pods-MarvelComUPSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelComUPSA.release.xcconfig"; path = "Target Support Files/Pods-MarvelComUPSA/Pods-MarvelComUPSA.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,12 +71,16 @@
 		06F015662A18C56D00592B8A /* MarvelComUPSA */ = {
 			isa = PBXGroup;
 			children = (
+				06F0157F2A18D51900592B8A /* Info.plist */,
 				06F015672A18C56D00592B8A /* MarvelComUPSAApp.swift */,
 				06F015692A18C56D00592B8A /* ContentView.swift */,
 				06F0156B2A18C56F00592B8A /* Assets.xcassets */,
 				06F015702A18C56F00592B8A /* Persistence.swift */,
 				06F015722A18C56F00592B8A /* MarvelComUPSA.xcdatamodeld */,
+				06F0157C2A18C71200592B8A /* Networking */,
+				06F015842A18E09400592B8A /* Presentation */,
 				06F0156D2A18C56F00592B8A /* Preview Content */,
+				06F015822A18D5EA00592B8A /* UserDefaultsKeys.swift */,
 			);
 			path = MarvelComUPSA;
 			sourceTree = "<group>";
@@ -80,13 +93,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		06F0157C2A18C71200592B8A /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				06F0157A2A18C70B00592B8A /* AFWrapper.swift */,
+				06F015802A18D56100592B8A /* NetworkConstants.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		06F015842A18E09400592B8A /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				06F015852A18E0C700592B8A /* ComicDetailBuilder.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
 		10CD37635D4C4434781370D0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				8899936311CE2E097C793892 /* Pods-MarvelComUPSA.debug.xcconfig */,
 				CD6DC206BC7F13F7913D36EA /* Pods-MarvelComUPSA.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -212,8 +241,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F015862A18E0C700592B8A /* ComicDetailBuilder.swift in Sources */,
+				06F015812A18D56100592B8A /* NetworkConstants.swift in Sources */,
 				06F015712A18C56F00592B8A /* Persistence.swift in Sources */,
 				06F015742A18C56F00592B8A /* MarvelComUPSA.xcdatamodeld in Sources */,
+				06F015832A18D5EA00592B8A /* UserDefaultsKeys.swift in Sources */,
+				06F0157B2A18C70B00592B8A /* AFWrapper.swift in Sources */,
 				06F0156A2A18C56D00592B8A /* ContentView.swift in Sources */,
 				06F015682A18C56D00592B8A /* MarvelComUPSAApp.swift in Sources */,
 			);
@@ -348,6 +381,7 @@
 				DEVELOPMENT_TEAM = 456TDU2LGC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarvelComUPSA/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -378,6 +412,7 @@
 				DEVELOPMENT_TEAM = 456TDU2LGC;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MarvelComUPSA/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
