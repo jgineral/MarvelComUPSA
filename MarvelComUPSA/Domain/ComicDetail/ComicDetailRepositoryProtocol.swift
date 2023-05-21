@@ -1,0 +1,10 @@
+//
+//  ComicDetailRepositoryProtocol.swift
+//  MarvelComUPSA
+//
+//  Created by Javier Giner Alvarez on 21/5/23.
+//
+
+protocol ComicDetailRepositoryProtocol {
+    func getComicDetail(id: Int, completion: @escaping (Result<ComicDetailModel, Error>) -> Void)
+}

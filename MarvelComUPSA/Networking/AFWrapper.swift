@@ -4,13 +4,21 @@
 //
 //  Created by Javier Giner Alvarez on 20/5/23.
 //
-
-import Foundation
 import Alamofire
+import Foundation
 
-class AFWrapper {
+protocol AFWrapperProtocol {
+    func makeRequest<T:Decodable>(url: String,
+                                  method: HTTPMethod,
+                                  queryParameters: Parameters?,
+                                  headers: HTTPHeaders?,
+                                  of type: T.Type,
+                                  completion: @escaping (Result<T, Error>) -> Void)
+}
+
+final class AFWrapper: AFWrapperProtocol {
     let session = Session.default
-    
+
     private var headers: HTTPHeaders = [] {
         didSet {
             headers.add(HTTPHeader.contentType("application/json"))
@@ -18,31 +26,29 @@ class AFWrapper {
     }
     
     private var defaultParameters: Parameters = [
-        "apikey" : UserDefaults.standard.string(forKey: UserDefaultsKeys.ApiKey.rawValue) ?? "",
-        "hash" : UserDefaults.standard.string(forKey: UserDefaultsKeys.Hash.rawValue) ?? "",
-        "ts": UserDefaults.standard.string(forKey: UserDefaultsKeys.Ts.rawValue) ?? "",
+        "apikey" : "a5f94883eef2b754ff7d72db5cdbdc5c",
+        "hash" : "f89445c504130a785a2daac4f37aeb16",
+        "ts": "1684579022"
     ]
-    
     
     func makeRequest<T:Decodable>(url: String,
                                   method: HTTPMethod = .get,
                                   queryParameters: Parameters?,
                                   headers: HTTPHeaders?,
-                                  of type: T.Type = T.self, completion: @escaping (Result<T, NSError>) -> Void) {
-        
+                                  of type: T.Type = T.self,
+                                  completion: @escaping (Result<T, Error>) -> Void) {
         if let headers {
             for header in headers {
                 self.headers.add(header)
             }
         }
-        
+
         if let queryParameters {
             for parameter in queryParameters {
                 defaultParameters.updateValue(parameter.value, forKey: parameter.key)
             }
         }
-        
-        session.request(url, method: method, parameters: defaultParameters, headers: self.headers)
+        session.request(url, method: method.AFMethod, parameters: defaultParameters, headers: self.headers)
             .validate()
             .cURLDescription(calling: { print($0) })
             .responseDecodable(of: type) { response in
@@ -55,5 +61,20 @@ class AFWrapper {
                     completion(.failure(error))
                 }
             }
+    }
+}
+
+extension HTTPMethod {
+    var AFMethod: Alamofire.HTTPMethod {
+        switch self {
+        case .get:
+            return .get
+        case .post:
+            return .post
+        case .put:
+            return .put
+        case .delete:
+            return .delete
+        }
     }
 }

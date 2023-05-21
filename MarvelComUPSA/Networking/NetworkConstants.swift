@@ -8,5 +8,5 @@
 import Foundation
 
 struct NetworkConstants {
-    static let baseUrl = "https://gateway.marvel.com"
+    static let baseUrl = "https://gateway.marvel.com:443"
 }
