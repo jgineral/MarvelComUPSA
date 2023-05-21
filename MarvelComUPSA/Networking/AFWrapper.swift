@@ -56,8 +56,7 @@ final class AFWrapper: AFWrapperProtocol {
                 case let .success(model):
                     completion(.success(model))
                     
-                case let .failure(errorAF):
-                    let error = NSError(domain: errorAF.localizedDescription, code: errorAF.responseCode ?? 500)
+                case let .failure(error):
                     completion(.failure(error))
                 }
             }
