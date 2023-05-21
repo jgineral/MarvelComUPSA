@@ -21,6 +21,6 @@ final class GetFavoritesComicListUseCase: GetFavoritesComicListUseCaseProtocol {
     }
     
     func run(params: GetFavoritesComicListParams) {
-        repository.getComicList(completion: params.completion)
+        repository.getFavoritesComicList(completion: params.completion)
     }
 }

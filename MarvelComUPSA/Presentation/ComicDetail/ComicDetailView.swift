@@ -12,59 +12,69 @@ struct ComicDetailView: View {
     
     var body: some View {
         ZStack {
-            ProgressView().isHidden(!viewModel.isLoading)
-            ScrollView {
-                VStack(spacing: 8) {
-                    if let detail = viewModel.detail {
-                        ImageView(url: detail.image)
-                            .frame(width: 200, height: 200)
-                        Text(detail.title)
-                            .font(.title)
-                        creatorSection
-                            .isHidden(detail.creators.isEmpty)
-                        dateSection
-                            .isHidden(detail.dates.isEmpty)
+            if viewModel.isLoading {
+                ProgressView()
+            } else {
+                ScrollView {
+                    VStack(spacing: 8) {
+                        if let detail = viewModel.detail {
+                            ImageView(url: detail.image)
+                                .frame(width: 200, height: 200)
+                            Text(detail.title)
+                                .font(.title)
+                            Button {
+                                viewModel.updateFavorite()
+                            } label: {
+                                Label(viewModel.buttonTitle,
+                                      systemImage: viewModel.buttonImage)
+                                    .tint(.yellow)
+                            }
+                            creatorSection
+                                .isHidden(detail.creators.isEmpty)
+                            dateSection
+                                .isHidden(detail.dates.isEmpty)
+                        }
                     }
+                    .padding()
                 }
-                .padding()
             }
         }
+        .background(CustomColors.detailColor)
         .onAppear { viewModel.loadComic() }
     }
     
     var creatorSection: some View {
-        Section("Creators") {
+        Section(viewModel.configuration.creatorsSectionTitle) {
             if let detail = viewModel.detail {
                 ForEach(detail.creators) { creator in
-                    VStack {
-                        HStack {
-                            Text("Nombre")
+                    HStack(spacing: 8) {
+                        VStack(alignment: .leading) {
+                            Text(viewModel.configuration.creatorsName)
                                 .font(.body)
+                            Text(viewModel.configuration.creatorsRole)
+                                .font(.body)
+                        }
+                        VStack(alignment: .leading) {
                             Text(creator.name)
                                 .font(.headline)
-                            Spacer()
-                        }
-                        HStack {
-                            Text("Rol")
-                                .font(.body)
-                            Text(creator.role.localizedUppercase)
+                            Text(creator.role)
                                 .font(.headline)
                                 .foregroundColor(creator.color)
-                            Spacer()
                         }
                     }
+                    .padding()
                 }
             }
         }
     }
         
     var dateSection: some View {
-        Section("Dates") {
+        Section(viewModel.configuration.dateSectionTitle) {
             if let detail = viewModel.detail {
                 ForEach(detail.dates) { date in
                     VStack {
                         HStack {
-                            Text(date.type.localizedUppercase)
+                            Text(date.type)
                                 .font(.body)
                             Text(date.date)
                                 .font(.headline)

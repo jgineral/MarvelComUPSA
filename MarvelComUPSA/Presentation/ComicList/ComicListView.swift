@@ -14,20 +14,23 @@ struct ComicListView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                ProgressView().isHidden(!viewModel.isLoading)
-                if viewModel.error != nil {
-                    ErrorView(error: viewModel.error) {
-                        viewModel.loadComics()
-                    }
+                if viewModel.isLoading {
+                    ProgressView()
                 } else {
-                    VStack {
-                        picker
+                    if viewModel.error != nil {
+                        ErrorView(error: viewModel.error) {
+                            viewModel.loadData()
+                        }
+                    } else {
                         list
                     }
                 }
             }
+            .onAppear {
+                pickerSelection = viewModel.pickerSelection
+                viewModel.loadData()
+            }
         }
-        .onAppear{ viewModel.loadComics() }
     }
 
     var picker: some View {
@@ -45,12 +48,15 @@ struct ComicListView: View {
     }
 
     var list: some View {
-        List {
-            ForEach(viewModel.list) { comic in
-                NavigationLink {
-                    ComicDetailBuilder().build(comicId: comic.id)
-                } label: {
-                    ComicItem(comic: comic)
+        VStack {
+            picker
+            List {
+                ForEach(viewModel.list) { comic in
+                    NavigationLink {
+                        ComicDetailBuilder().build(comicId: comic.id)
+                    } label: {
+                        ComicItem(comic: comic)
+                    }
                 }
             }
         }

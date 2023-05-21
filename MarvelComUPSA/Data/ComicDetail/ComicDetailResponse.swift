@@ -49,7 +49,8 @@ struct ComicDetailResponse: Decodable {
                                 description: description ?? "Description not found",
                                 image: images?.first?.toDomain(),
                                 dates: dates?.compactMap { $0.toDomain() } ?? [],
-                                creators: creators?.toDomain() ?? [])
+                                creators: creators?.toDomain() ?? [],
+                                isFavorite: false)
     }
 }
 
@@ -59,10 +60,11 @@ struct ComicDetailResponseDate: Decodable {
     
     func toDomain() -> DateModel? {
         guard let type = DateModel.ComicDateType(rawValue: type ?? ""),
-              let date = try? Date(date ?? "", strategy: .dateTime) else {
+              let date,
+              let formatDate = ISO8601DateFormatter().date(from: date) else {
             return nil
         }
-        return DateModel(type: type, date: date)
+        return DateModel(type: type, date: formatDate)
     }
 }
 

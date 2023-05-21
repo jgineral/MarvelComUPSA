@@ -13,24 +13,41 @@ final class ComicListViewModel: ObservableObject {
     @Published var list: [ComicUIModel] = []
     @Published var error: String?
 
-    private var selectedOption: SelectionOption = .standard
+    var pickerSelection = ""
     var pickerOptions = SelectionOption.allCases.map { $0.description }
 
     private let getComicListUseCase: GetComicListUseCaseProtocol
     private let getFavoritesComicListUseCase: GetFavoritesComicListUseCaseProtocol
+    private var selectedOption: SelectionOption = .standard
+    private var apiList: [ComicModel]?
 
     init(getComicListUseCase: GetComicListUseCaseProtocol,
          getFavoritesComicListUseCase: GetFavoritesComicListUseCaseProtocol) {
         self.getComicListUseCase = getComicListUseCase
         self.getFavoritesComicListUseCase = getFavoritesComicListUseCase
         self.title = selectedOption.description
+        self.pickerSelection = selectedOption.description
     }
 
-    func loadComics() {
+    func loadData() {
+        switch selectedOption {
+        case .favorites:
+            loadFavoritesComics()
+        case .standard:
+            loadComics()
+        }
+    }
+
+    private func loadComics() {
+        guard apiList == nil else {
+            list = apiList?.map { $0.toUIModel() } ?? []
+            return
+        }
         isLoading = true
         let params = GetComicListParams { [weak self] result in
             switch result {
             case .success(let model):
+                self?.apiList = model
                 self?.list = model.map { $0.toUIModel() }
             case .failure(let error):
                 self?.error = error.localizedDescription
@@ -40,7 +57,7 @@ final class ComicListViewModel: ObservableObject {
         getComicListUseCase.run(params: params)
     }
     
-    func loadFavoritesComics() {
+    private func loadFavoritesComics() {
         isLoading = true
         let params = GetFavoritesComicListParams { [weak self] result in
             switch result {
@@ -55,13 +72,9 @@ final class ComicListViewModel: ObservableObject {
     }
 
     func selectOption(option: String) {
+        pickerSelection = option
         selectedOption = SelectionOption(rawValue: option) ?? .standard
-        switch selectedOption {
-        case .favorites:
-            loadFavoritesComics()
-        case .standard:
-            loadComics()
-        }
+        loadData()
     }
 }
 
@@ -95,7 +108,6 @@ private extension ComicListViewModel {
                 return "Comics favoritos"
             }
         }
-
     }
 }
 

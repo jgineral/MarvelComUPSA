@@ -14,13 +14,14 @@ struct ComicDetailModel {
     let image: URL?
     let dates: [DateModel]
     let creators: [CreatorModel]
+    let isFavorite: Bool
 }
 
 
 struct CreatorModel {
     enum Role: String {
         case editor
-        case collorist
+        case colorist
         case inker
         case writter
         case penciller
@@ -36,8 +37,8 @@ struct CreatorModel {
                 self = .inker
             case "writer", "writter":
                 self = .writter
-            case "collorist":
-                self = .collorist
+            case "colorist":
+                self = .colorist
             default:
                 self = .unknown
             }
@@ -51,7 +52,6 @@ struct CreatorModel {
 struct DateModel {
     enum ComicDateType: String {
         case onSale = "onsaleDate"
-        case foc = "focDate"
         case unlimited = "unlimitedDate"
         case digitalPurchase = "digitalPurchaseDate"
     }

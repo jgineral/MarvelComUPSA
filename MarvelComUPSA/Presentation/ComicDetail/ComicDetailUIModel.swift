@@ -14,6 +14,7 @@ struct ComicDetailUIModel: Identifiable {
     let image: URL?
     let creators: [CreatorUIModel]
     let dates: [DateUIModel]
+    let isFavorite: Bool
 }
 
 struct CreatorUIModel: Identifiable {
@@ -26,14 +27,14 @@ struct CreatorUIModel: Identifiable {
 extension CreatorModel.Role {
     var color: Color {
         switch self {
-        case .collorist:
+        case .colorist:
             return .blue
         case .editor:
-            return .gray
+            return .pink
         case .writter:
             return .green
         case .inker:
-            return .black
+            return .yellow
         case .unknown:
             return .red
         case .penciller:
