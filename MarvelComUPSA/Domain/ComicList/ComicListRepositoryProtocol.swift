@@ -9,4 +9,5 @@ import Foundation
 
 protocol ComicListRepositoryProtocol {
     func getComicList(completion: @escaping (Result<[ComicModel], Error>) -> Void)
+    func getFavoritesComicList(completion: @escaping (Result<[ComicModel], Error>) -> Void)
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ComicListView: View {
     @ObservedObject var viewModel: ComicListViewModel
+    @State private var pickerSelection: String = ""
 
     var body: some View {
         NavigationStack {
@@ -19,10 +20,28 @@ struct ComicListView: View {
                         viewModel.loadComics()
                     }
                 } else {
-                    list
+                    VStack {
+                        picker
+                        list
+                    }
                 }
             }
-        }.onAppear{ viewModel.loadComics() }
+        }
+        .onAppear{ viewModel.loadComics() }
+    }
+
+    var picker: some View {
+        Picker("Select an option", selection: $pickerSelection) {
+            ForEach(viewModel.pickerOptions, id: \.self) {
+                Text($0)
+            }
+        }
+        .onChange(of: pickerSelection) { selection in
+            viewModel.selectOption(option: selection)
+        }
+        .pickerStyle(.segmented)
+        .labelsHidden()
+        .padding()
     }
 
     var list: some View {
@@ -57,6 +76,6 @@ struct ComicItem: View {
 
 struct ComicListView_Previews: PreviewProvider {
     static var previews: some View {
-        ComicListBuilder().build(mode: .favorites)
+        ComicListBuilder().build()
     }
 }

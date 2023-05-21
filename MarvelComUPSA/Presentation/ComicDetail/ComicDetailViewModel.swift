@@ -57,5 +57,4 @@ private extension DateModel {
     func toViewModel() -> DateUIModel {
         DateUIModel(date: date.formatted(), type: type.rawValue)
     }
-
 }
