@@ -82,6 +82,6 @@ struct ComicItem: View {
 
 struct ComicListView_Previews: PreviewProvider {
     static var previews: some View {
-        ComicListBuilder().build()
+        ComicListBuilderMock().build()
     }
 }

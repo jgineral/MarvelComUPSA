@@ -50,6 +50,13 @@
 		06F015F12A1A624A00592B8A /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015F02A1A624A00592B8A /* View+Hidden.swift */; };
 		06F015F42A1A641300592B8A /* RemoveFavoriteComicUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015F32A1A641300592B8A /* RemoveFavoriteComicUseCase.swift */; };
 		06F015F62A1A7E0E00592B8A /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015F52A1A7E0E00592B8A /* CustomColors.swift */; };
+		06F015F92A1AA05600592B8A /* ComicListBuilderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015F82A1AA05600592B8A /* ComicListBuilderMock.swift */; };
+		06F015FC2A1AA07800592B8A /* GetComicListUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015FB2A1AA07800592B8A /* GetComicListUseCaseMock.swift */; };
+		06F015FE2A1AA13500592B8A /* GetFavoritesComicListUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F015FD2A1AA13500592B8A /* GetFavoritesComicListUseCaseMock.swift */; };
+		06F016012A1AA26700592B8A /* ComicDetailBuilderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F016002A1AA26700592B8A /* ComicDetailBuilderMock.swift */; };
+		06F016032A1AA27F00592B8A /* GetComicDetailUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F016022A1AA27F00592B8A /* GetComicDetailUseCaseMock.swift */; };
+		06F016052A1AA2EB00592B8A /* SaveFavoriteUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F016042A1AA2EB00592B8A /* SaveFavoriteUseCaseMock.swift */; };
+		06F016072A1AA2F600592B8A /* RemoveFavoriteUseCaseMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F016062A1AA2F600592B8A /* RemoveFavoriteUseCaseMock.swift */; };
 		E8D9394F32747C143C4CA796 /* Pods_MarvelComUPSA.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A11D88F7B74723DC57B0B57F /* Pods_MarvelComUPSA.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +106,13 @@
 		06F015F02A1A624A00592B8A /* View+Hidden.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
 		06F015F32A1A641300592B8A /* RemoveFavoriteComicUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavoriteComicUseCase.swift; sourceTree = "<group>"; };
 		06F015F52A1A7E0E00592B8A /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
+		06F015F82A1AA05600592B8A /* ComicListBuilderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicListBuilderMock.swift; sourceTree = "<group>"; };
+		06F015FB2A1AA07800592B8A /* GetComicListUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetComicListUseCaseMock.swift; sourceTree = "<group>"; };
+		06F015FD2A1AA13500592B8A /* GetFavoritesComicListUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFavoritesComicListUseCaseMock.swift; sourceTree = "<group>"; };
+		06F016002A1AA26700592B8A /* ComicDetailBuilderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailBuilderMock.swift; sourceTree = "<group>"; };
+		06F016022A1AA27F00592B8A /* GetComicDetailUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetComicDetailUseCaseMock.swift; sourceTree = "<group>"; };
+		06F016042A1AA2EB00592B8A /* SaveFavoriteUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveFavoriteUseCaseMock.swift; sourceTree = "<group>"; };
+		06F016062A1AA2F600592B8A /* RemoveFavoriteUseCaseMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFavoriteUseCaseMock.swift; sourceTree = "<group>"; };
 		8899936311CE2E097C793892 /* Pods-MarvelComUPSA.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelComUPSA.debug.xcconfig"; path = "Target Support Files/Pods-MarvelComUPSA/Pods-MarvelComUPSA.debug.xcconfig"; sourceTree = "<group>"; };
 		A11D88F7B74723DC57B0B57F /* Pods_MarvelComUPSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelComUPSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD6DC206BC7F13F7913D36EA /* Pods-MarvelComUPSA.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelComUPSA.release.xcconfig"; path = "Target Support Files/Pods-MarvelComUPSA/Pods-MarvelComUPSA.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +167,7 @@
 		06F0156D2A18C56F00592B8A /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				06F015F72A1AA03E00592B8A /* PreviewMocks */,
 				06F0156E2A18C56F00592B8A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -337,6 +352,36 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		06F015F72A1AA03E00592B8A /* PreviewMocks */ = {
+			isa = PBXGroup;
+			children = (
+				06F015FF2A1AA25700592B8A /* ComicDetail */,
+				06F015FA2A1AA06B00592B8A /* ComicList */,
+			);
+			path = PreviewMocks;
+			sourceTree = "<group>";
+		};
+		06F015FA2A1AA06B00592B8A /* ComicList */ = {
+			isa = PBXGroup;
+			children = (
+				06F015F82A1AA05600592B8A /* ComicListBuilderMock.swift */,
+				06F015FB2A1AA07800592B8A /* GetComicListUseCaseMock.swift */,
+				06F015FD2A1AA13500592B8A /* GetFavoritesComicListUseCaseMock.swift */,
+			);
+			path = ComicList;
+			sourceTree = "<group>";
+		};
+		06F015FF2A1AA25700592B8A /* ComicDetail */ = {
+			isa = PBXGroup;
+			children = (
+				06F016002A1AA26700592B8A /* ComicDetailBuilderMock.swift */,
+				06F016022A1AA27F00592B8A /* GetComicDetailUseCaseMock.swift */,
+				06F016042A1AA2EB00592B8A /* SaveFavoriteUseCaseMock.swift */,
+				06F016062A1AA2F600592B8A /* RemoveFavoriteUseCaseMock.swift */,
+			);
+			path = ComicDetail;
+			sourceTree = "<group>";
+		};
 		10CD37635D4C4434781370D0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,6 +515,7 @@
 			files = (
 				06F015E02A1A2D3A00592B8A /* DataController.swift in Sources */,
 				06F015E92A1A457400592B8A /* GetFavoritesComicListUseCase.swift in Sources */,
+				06F015FE2A1AA13500592B8A /* GetFavoritesComicListUseCaseMock.swift in Sources */,
 				06F015F42A1A641300592B8A /* RemoveFavoriteComicUseCase.swift in Sources */,
 				06F0159B2A194D3F00592B8A /* ComicListView.swift in Sources */,
 				06F015EB2A1A4BBF00592B8A /* SaveFavoriteComicUseCase.swift in Sources */,
@@ -478,13 +524,18 @@
 				06F015812A18D56100592B8A /* NetworkConstants.swift in Sources */,
 				06F015CF2A1A0E3C00592B8A /* ComicDetailDataSource.swift in Sources */,
 				06F015E62A1A416A00592B8A /* SelectionOption.swift in Sources */,
+				06F016072A1AA2F600592B8A /* RemoveFavoriteUseCaseMock.swift in Sources */,
 				06F015B92A19686500592B8A /* ComicListBuilder.swift in Sources */,
 				06F015B52A195B6B00592B8A /* ComicListRequest.swift in Sources */,
 				06F015AF2A1957DA00592B8A /* ComicListRepositoryProtocol.swift in Sources */,
+				06F015F92A1AA05600592B8A /* ComicListBuilderMock.swift in Sources */,
 				06F015D92A1A19F000592B8A /* ErrorView.swift in Sources */,
+				06F015FC2A1AA07800592B8A /* GetComicListUseCaseMock.swift in Sources */,
+				06F016012A1AA26700592B8A /* ComicDetailBuilderMock.swift in Sources */,
 				06F015892A18E1D900592B8A /* ComicDetailUIModel.swift in Sources */,
 				06F015F62A1A7E0E00592B8A /* CustomColors.swift in Sources */,
 				06F015D12A1A0E9300592B8A /* ComicDetailResponse.swift in Sources */,
+				06F016032A1AA27F00592B8A /* GetComicDetailUseCaseMock.swift in Sources */,
 				06F015E22A1A307A00592B8A /* ComicListLocalDataSource.swift in Sources */,
 				06F015B32A195AA100592B8A /* BaseRequest.swift in Sources */,
 				06F0159D2A194D5200592B8A /* ComicListViewModel.swift in Sources */,
@@ -501,6 +552,7 @@
 				06F015932A18E47600592B8A /* ComicDetailModel.swift in Sources */,
 				06F015682A18C56D00592B8A /* MarvelComUPSAApp.swift in Sources */,
 				06F015912A18E41900592B8A /* GetComicDetailUseCase.swift in Sources */,
+				06F016052A1AA2EB00592B8A /* SaveFavoriteUseCaseMock.swift in Sources */,
 				06F015D32A1A0EB900592B8A /* ComicListDataSourceProtocol.swift in Sources */,
 				06F015CB2A1A0D7800592B8A /* ComicDetailRepositoryProtocol.swift in Sources */,
 				06F015DE2A1A2C2100592B8A /* MarvelComUPSA.xcdatamodeld in Sources */,

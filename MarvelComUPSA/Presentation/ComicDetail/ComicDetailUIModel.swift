@@ -14,7 +14,6 @@ struct ComicDetailUIModel: Identifiable {
     let image: URL?
     let creators: [CreatorUIModel]
     let dates: [DateUIModel]
-    let isFavorite: Bool
 }
 
 struct CreatorUIModel: Identifiable {
@@ -42,6 +41,7 @@ extension CreatorModel.Role {
         }
     }
 }
+
 struct DateUIModel: Identifiable {
     let id: UUID = UUID()
     let date: String

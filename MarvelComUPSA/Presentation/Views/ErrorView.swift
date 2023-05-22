@@ -20,13 +20,12 @@ struct ErrorView: View {
         VStack(spacing: 16) {
             Image(systemName: "lock.circle.fill")
                 .symbolRenderingMode(.multicolor)
-            Text("Ups, there's been an error - \(error ?? "")")
+            Text("Ha ocurrido un error - \(error ?? "")")
                 .padding()
             Button {
                 completion()
             } label: {
-                // TODO - Loader
-                Image(systemName: "fan.floor")
+               Text("Intentar de nuevo")
             }
         }
     }

@@ -35,8 +35,8 @@ struct ComicDetailView: View {
                                 .isHidden(detail.dates.isEmpty)
                         }
                     }
-                    .padding()
                 }
+                .frame(maxWidth: .infinity)
             }
         }
         .background(CustomColors.detailColor)
@@ -72,13 +72,12 @@ struct ComicDetailView: View {
         Section(viewModel.configuration.dateSectionTitle) {
             if let detail = viewModel.detail {
                 ForEach(detail.dates) { date in
-                    VStack {
-                        HStack {
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .center) {
                             Text(date.type)
                                 .font(.body)
                             Text(date.date)
                                 .font(.headline)
-                            Spacer()
                         }
                     }
                 }
@@ -89,6 +88,6 @@ struct ComicDetailView: View {
 
 struct ComicDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ComicDetailBuilder().build(comicId: 1)
+        ComicDetailBuilderMock().build(comicId: 1)
     }
 }

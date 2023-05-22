@@ -125,8 +125,7 @@ private extension ComicDetailModel {
                            description: description,
                            image: image,
                            creators: creators.map { $0.toViewModel() },
-                           dates: dates.map { $0.toViewModel() },
-                           isFavorite: isFavorite)
+                           dates: dates.map { $0.toViewModel() })
     }
 }
 
